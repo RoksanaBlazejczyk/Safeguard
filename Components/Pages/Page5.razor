@@ -1,0 +1,36 @@
+﻿@page "/page5"
+@inject NavigationManager Nav
+<h1>Where did the School Pupil Disclose?</h1>
+<br />
+<div style="background-color: #B9B5B0; height: 100vh;">
+<MudGrid Justify="Justify.Center" AlignItems="AlignItems.Center">
+
+    <MudItem xs="6" sm="6" md="6" class="d-flex justify-content-center align-items-center">
+        <MudPaper Class="mud-theme-primary d-flex justify-content-center align-items-center" Width="256px" Height="128px">
+            <MudButton OnClick="ToPage4School" Color="Color.Primary" Style="color: white; background-color: #007bff;">
+               In School Premismises
+            </MudButton>
+        </MudPaper>
+    </MudItem>
+
+    <MudItem xs="6" sm="6" md="6" class="d-flex justify-content-center align-items-center">
+        <MudPaper Class="mud-theme-primary d-flex justify-content-center align-items-center" Width="256px" Height="128px">
+            <MudButton OnClick="ToPage4NCL" Color="Color.Primary" Style="color: white; background-color: #007bff;">
+                In NCL Premismises
+            </MudButton>
+        </MudPaper>
+    </MudItem>
+
+</MudGrid>
+</div>
+
+@code {
+    void ToPage4School()
+    {
+        Nav.NavigateTo("Page6");
+    }
+    void ToPage4NCL()
+    {
+        Nav.NavigateTo("Page6");
+    }
+}

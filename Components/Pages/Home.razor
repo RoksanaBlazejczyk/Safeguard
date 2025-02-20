@@ -1,0 +1,19 @@
+﻿@page "/"
+
+@inject NavigationManager Navigation
+<div style="background-color: #B9B5B0; height: 100vh;">
+
+<MudContainer>
+    <MudCard>
+        <MudButton OnClick="ToPage1" Color="Color.Primary">Next Page</MudButton>
+
+        <MudImage Src="images/example.jpg" Alt="Click to Navigate" Width="300" />
+    </MudCard>
+</MudContainer>
+
+@code {
+    void ToPage1()
+    {
+        Navigation.NavigateTo("/page1");
+    }
+}</div>
