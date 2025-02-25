@@ -1,5 +1,7 @@
 ﻿@page "/page5"
+@using SafeGuard.Services
 @inject NavigationManager Nav
+@inject SafeGuard.Services.LayoutState LayoutState
 <h1>Where did the School Pupil Disclose?</h1>
 <br />
 <div style="background-color: #B9B5B0; height: 100vh;">
@@ -27,10 +29,12 @@
 @code {
     void ToPage4School()
     {
-        Nav.NavigateTo("Page6");
+        LayoutState.UpdateProgress(100);
+        Nav.NavigateTo("/page6");
     }
     void ToPage4NCL()
     {
-        Nav.NavigateTo("Page6");
+        LayoutState.UpdateProgress(100);
+        Nav.NavigateTo("/page6");
     }
 }

@@ -1,19 +1,27 @@
 ﻿@page "/"
-
+@using SafeGuard.Services
 @inject NavigationManager Navigation
+@inject SafeGuard.Services.LayoutState LayoutState
 <div style="background-color: #B9B5B0; height: 100vh;">
 
-<MudContainer>
-    <MudCard>
-        <MudButton OnClick="ToPage1" Color="Color.Primary">Next Page</MudButton>
+    <MudContainer>
+        <MudCard>
+            <MudImage Src="images/page4NCL.png" Alt="Click to Navigate" Width="300" />
+            <MudButton OnClick="ToPage1" Color="Color.Primary">Next Page</MudButton>
+        </MudCard>
+    </MudContainer>
 
-        <MudImage Src="images/example.jpg" Alt="Click to Navigate" Width="300" />
-    </MudCard>
-</MudContainer>
+</div>  @* Moved closing div before @code *@
 
 @code {
+    protected override void OnInitialized()
+    {
+        LayoutState.UpdateProgress(0); // Reset progress when on the home page
+    }
+
     void ToPage1()
     {
+        LayoutState.UpdateProgress(16); // Move to 16% when navigating to Page 1
         Navigation.NavigateTo("/page1");
     }
-}</div>
+}

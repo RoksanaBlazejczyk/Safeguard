@@ -1,6 +1,7 @@
 ﻿@page "/page1"
+@using SafeGuard.Services
 @inject NavigationManager Nav
-
+@inject SafeGuard.Services.LayoutState LayoutState
 <div style="background-color: #B9B5B0; height: 100vh;">
 
     <h1>Safe Guard</h1>
@@ -70,11 +71,7 @@
 @code {
     void ToPage2()
     {
-        Nav.NavigateTo("Page2");
+        LayoutState.UpdateProgress(33); // Move to 33% when navigating to Page 2   
+        Nav.NavigateTo("/page2");
     }
 }
-
-
-
-
-

@@ -1,4 +1,6 @@
 ﻿@inherits LayoutComponentBase
+@inject NavigationManager Navigation
+
 @* Required *@
 <MudThemeProvider />
 <MudPopoverProvider />
@@ -23,6 +25,11 @@
             @Body
         </article>
     </main>
+
+    <!-- Footer with Progress Bar -->
+    <footer class="progress-footer">
+        <MudProgressLinear Value="@progress" Color="Color.Primary" Height="8px" Animated="true" />
+    </footer>
 </div>
 
 <div id="blazor-error-ui" data-nosnippet>
@@ -30,3 +37,41 @@
     <a href="." class="reload">Reload</a>
     <span class="dismiss">🗙</span>
 </div>
+
+@code {
+    private int progress = 0;
+
+    protected override void OnInitialized()
+    {
+        Navigation.LocationChanged += OnLocationChanged;
+        UpdateProgress();
+    }
+
+    private void OnLocationChanged(object? sender, Microsoft.AspNetCore.Components.Routing.LocationChangedEventArgs e)
+    {
+        UpdateProgress();
+        StateHasChanged(); // Ensure UI refresh
+    }
+
+    @*This is the progress bar method, change numbers depending on progress percentage and pages*@
+    private void UpdateProgress()
+    {
+        string path = Navigation.Uri.Split('/').Last();
+        progress = path switch
+        {
+            "" => 0,       // Home
+            "page1" => 16, // Page 1
+            "page2" => 33, // Page 2
+            "page3" => 50, // Page 3
+            "page4" => 67, // Page 4
+            "page5" => 83, // Page 5
+            "page6" => 100, // Page6
+            _ => progress
+        };
+    }
+
+    public void Dispose()
+    {
+        Navigation.LocationChanged -= OnLocationChanged;
+    }
+}

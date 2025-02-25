@@ -1,5 +1,7 @@
 ﻿@page "/page2"
+@using SafeGuard.Services
 @inject NavigationManager Nav
+@inject SafeGuard.Services.LayoutState LayoutState
 <div style="background-color: #B9B5B0; height: 100vh;">
 <MudGrid Justify="Justify.Center">
     <MudItem xs="12" sm="8" md="6">
@@ -125,19 +127,23 @@
 @code {
     void ToPage3Person()
     {
-        Nav.NavigateTo("Page3");
+        LayoutState.UpdateProgress(50); // Move to 50% when navigating to Page 3
+        Nav.NavigateTo("/page3");
     }
     void ToPage3Student()
     {
-        Nav.NavigateTo("Page3");
+        LayoutState.UpdateProgress(50); 
+        Nav.NavigateTo("/page3");
     }
     void ToPage3Staff()
     {
-        Nav.NavigateTo("Page3");
+        LayoutState.UpdateProgress(50);
+        Nav.NavigateTo("/page3");
     }
     void ToPage3Visitor()
     {
-        Nav.NavigateTo("Page3");
+        LayoutState.UpdateProgress(50);
+        Nav.NavigateTo("/page3");
     }
 }
 

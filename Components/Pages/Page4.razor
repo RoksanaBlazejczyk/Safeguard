@@ -1,5 +1,7 @@
 ﻿@page "/page4"
+@using SafeGuard.Services
 @inject NavigationManager Nav
+@inject SafeGuard.Services.LayoutState LayoutState
 <h1>It is a School Student or NCL Student?</h1>
 <br />
 <div style="background-color: #B9B5B0; height: 100vh;">
@@ -52,10 +54,12 @@
 @code {
     void ToPage4School()
     {
-        Nav.NavigateTo("Page5");
+        LayoutState.UpdateProgress(84); // Move to 84% when navigating to Page 5
+        Nav.NavigateTo("/page5");
     }
     void ToPage4NCL()
     {
-        Nav.NavigateTo("Page5");
+        LayoutState.UpdateProgress(84);
+        Nav.NavigateTo("/page5");
     }
 }
