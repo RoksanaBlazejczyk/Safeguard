@@ -1,0 +1,25 @@
+﻿@page "/end"
+@page "/page10"
+@using SafeGuard.Services
+@inject NavigationManager Nav
+@inject SafeGuard.Services.LayoutState LayoutState
+
+
+<h3>End of Process</h3>
+<h2>Thank you very much for following processes in our Safeguarding Decision Tool.</h2>
+<h2>You may be contacted for further information by a member of the Safeguarding Board, a strudent advisor, a social worker or the Police at a later date.</h2>
+<h2>Is is all of our duty to look out for every member of the NCL, and wider Lanarkshire Community.</h2>
+<MudButton OnClick="HomePage" Variant="Variant.Filled" Color="Color.Primary"
+           Style="margin-top: 10px; width: 200px; font-size: 16px; transition: transform 0.3s ease-in-out;"
+           Class="hover-scale">
+    END House Pic - back to home page
+</MudButton>
+
+@code {
+     void HomePage()
+    {
+        LayoutState.UpdateProgress(100);
+        Nav.NavigateTo("/");
+    }
+
+}
