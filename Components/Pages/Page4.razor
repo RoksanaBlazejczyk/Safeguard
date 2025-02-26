@@ -16,7 +16,7 @@
                 <div class="circle-container" style="background-color: #007BFF; border-radius: 50%; width: 100px; height: 100px; display: flex; align-items: center; justify-content: center;">
                 <img src="images/page4school.png" alt="Individual Concern Icon" width="70" height="70" />
             </div>
-            <MudButton OnClick="ToPage4School" Variant="Variant.Filled" Color="Color.Primary"
+            <MudButton OnClick="ToPageSchool" Variant="Variant.Filled" Color="Color.Primary"
                        Style="margin-top: 10px; width: 200px; font-size: 16px; transition: transform 0.3s ease-in-out;"
                        Class="hover-scale">
                 School Student
@@ -32,7 +32,7 @@
                 <div class="circle-container" style="background-color: #28A745; border-radius: 50%; width: 100px; height: 100px; display: flex; align-items: center; justify-content: center;">
                 <img src="images/page4NCL.png" alt="Student Concern Icon" width="70" height="70" />
             </div>
-            <MudButton OnClick="ToPage4NCL" Variant="Variant.Filled" Color="Color.Success"
+            <MudButton OnClick="ToPageNCL" Variant="Variant.Filled" Color="Color.Success"
                        Style="margin-top: 10px; width: 200px; font-size: 16px; transition: transform 0.3s ease-in-out;"
                        Class="hover-scale">
                 NCL Student
@@ -52,14 +52,14 @@
 
 
 @code {
-    void ToPage4School()
+    void ToPageSchool()
     {
         LayoutState.UpdateProgress(84); // Move to 84% when navigating to Page 5
         Nav.NavigateTo("/page5");
     }
-    void ToPage4NCL()
+    void ToPageNCL()
     {
         LayoutState.UpdateProgress(84);
-        Nav.NavigateTo("/page5");
+        Nav.NavigateTo("/page8");
     }
 }
