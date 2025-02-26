@@ -5,6 +5,7 @@
 @inject NavigationManager Nav
 
 @inject SafeGuard.Services.LayoutState LayoutState
+<h1>STAFF MEMBER ACTION REQUIRED</h1>
 
 <h2>1.Staff member contacts in-school contact</h2>
 <h2>2. Notify Schools Development Manager (Arlene Byrne)</h2>
@@ -29,14 +30,27 @@
 
 @code {
 
-    void ToPage9()
+        private void CompleteProcess()
+        {
+
+            // Send Email
+            var email = "arlene.byrne@my.nlan.ac.uk";
+            var subject = "Safeguarding Referral Submitted";
+
+
+            var mailtoLink = $"mailto:{email}?subject={Uri.EscapeDataString(subject)}";
+
+            NavigationManager.NavigateTo(mailtoLink, true);
+        }
+
+
+    void ToPageEnd()
 
     {
 
         LayoutState.UpdateProgress(100);
 
-        Nav.NavigateTo("/page9");
+        Nav.NavigateTo("/page10");
 
     }
-
-}
+    }
