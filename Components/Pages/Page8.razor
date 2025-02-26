@@ -13,17 +13,35 @@
 <h2>3. You may be contacted by your Academic Leader/ Head of Department or a member of the Safeguarding Team to discuss this refferal.</h2>
 
 @*left button*@
-<MudButton OnClick="ToPage4School" Variant="Variant.Filled" Color="Color.Primary"
-           Style="margin-top: 10px; width: 200px; font-size: 16px; transition: transform 0.3s ease-in-out;"
-           Class="hover-scale">
+<MudButton OnClick="ToPageEnd" Variant="Variant.Filled" Color="Color.Primary"
+Style="margin-top: 10px; width: 200px; font-size: 16px; transition: transform 0.3s ease-in-out;"
+Class="hover-scale">
     Concerns Allayed
 </MudButton>
 @*right button*@
-<MudButton OnClick="ToPage4School" Variant="Variant.Filled" Color="Color.Primary"
+<MudButton OnClick="ToPage9" Variant="Variant.Filled" Color="Color.Primary"
+Style="margin-top: 10px; width: 200px; font-size: 16px; transition: transform 0.3s ease-in-out;"
+Class="hover-scale">
+    Ongoing Monitoring
+</MudButton>
+<MudButton OnClick="ToPageEnd" Variant="Variant.Filled" Color="Color.Primary"
            Style="margin-top: 10px; width: 200px; font-size: 16px; transition: transform 0.3s ease-in-out;"
            Class="hover-scale">
-   Ongoing Monitoring
+    ARROW BUTTON
 </MudButton>
 @code {
+    void ToPageEnd()
+    {
+        LayoutState.UpdateProgress(100);
 
+    Nav.NavigateTo("/page10");
+    }
+        void ToPage9()
+        {
+            LayoutState.UpdateProgress(100);
+
+            Nav.NavigateTo("/page9");
+        }
+   
+    
 }

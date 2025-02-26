@@ -4,23 +4,47 @@
 @inject SafeGuard.Services.LayoutState LayoutState
 
 <h3>After being referred to Safeguarding Board/Executive Board</h3>
-
+@*left*@
 <MudItem xs="6" sm="6" md="6" class="d-flex justify-content-center align-items-center">
     <MudPaper Class="mud-theme-primary d-flex justify-content-center align-items-center" Width="256px" Height="128px">
-        <MudButton OnClick="ToPage4School" Color="Color.Primary" Style="color: white; background-color: #007bff;">
+        <MudButton OnClick="ToPage8" Color="Color.Primary" Style="color: white; background-color: #007bff;">
             Further Conerns at a later date - Contact Safeguarding Board/Safeguarding Team
         </MudButton>
     </MudPaper>
 </MudItem>
-
+@*right*@
 <MudItem xs="6" sm="6" md="6" class="d-flex justify-content-center align-items-center">
     <MudPaper Class="mud-theme-primary d-flex justify-content-center align-items-center" Width="256px" Height="128px">
-        <MudButton OnClick="ToPage4NCL" Color="Color.Primary" Style="color: white; background-color: #007bff;">
+        <MudButton OnClick="ToAP1Form" Color="Color.Primary" Style="color: white; background-color: #007bff;">
             Completetion of AP 1 Form (For Adults) - to be sent to Social Work
         </MudButton>
     </MudPaper>
-</MudItem>
+    <MudButton OnClick="ToPageEnd" Variant="Variant.Filled" Color="Color.Primary"
+               Style="margin-top: 10px; width: 200px; font-size: 16px; transition: transform 0.3s ease-in-out;"
+               Class="hover-scale">
+        ARROW BUTTON
+    </MudButton>
+    @code {
+        void ToPageEnd()
+        {
+        LayoutState.UpdateProgress(100);
 
-@code {
+        Nav.NavigateTo("/End");
+        }
+        void ToPage8()
+        {
+        LayoutState.UpdateProgress(100);
 
-}
+        Nav.NavigateTo("/page8");
+        }
+        void ToAP1Form()
+        {
+        LayoutState.UpdateProgress(100);
+
+        Nav.NavigateTo("/https://newcollegelanarkshire.sharepoint.com/:b:/s/SafeguardingTeam2022/EelD82DAnopLtTcA_g-H-i0BhnHfoXPJBll0V4dYy-YABw?email=stephencotter7%40gmail.com&e=88TcpQ");
+        
+       
+        
+
+        }
+    }

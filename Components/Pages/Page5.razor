@@ -6,18 +6,18 @@
 <br />
 <div style="background-color: #B9B5B0; height: 100vh;">
 <MudGrid Justify="Justify.Center" AlignItems="AlignItems.Center">
-
+    @*School*@
     <MudItem xs="6" sm="6" md="6" class="d-flex justify-content-center align-items-center">
         <MudPaper Class="mud-theme-primary d-flex justify-content-center align-items-center" Width="256px" Height="128px">
-            <MudButton OnClick="ToPage4School" Color="Color.Primary" Style="color: white; background-color: #007bff;">
+            <MudButton OnClick="ToPage7" Color="Color.Primary" Style="color: white; background-color: #007bff;">
                In School Premismises
             </MudButton>
         </MudPaper>
     </MudItem>
-
+    @*NCL*@
     <MudItem xs="6" sm="6" md="6" class="d-flex justify-content-center align-items-center">
         <MudPaper Class="mud-theme-primary d-flex justify-content-center align-items-center" Width="256px" Height="128px">
-            <MudButton OnClick="ToPage4NCL" Color="Color.Primary" Style="color: white; background-color: #007bff;">
+            <MudButton OnClick="ToPage6" Color="Color.Primary" Style="color: white; background-color: #007bff;">
                 In NCL Premismises
             </MudButton>
         </MudPaper>
@@ -27,12 +27,12 @@
 </div>
 
 @code {
-    void ToPage4School()
+    void ToPage7()
     {
         LayoutState.UpdateProgress(100);
-        Nav.NavigateTo("/page?);
+        Nav.NavigateTo("/page7");
     }
-    void ToPage4NCL()
+    void ToPage6()
     {
         LayoutState.UpdateProgress(100);
         Nav.NavigateTo("/page6");
