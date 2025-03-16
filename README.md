@@ -6,6 +6,7 @@
 - New styling in Home page
 - New stying in page1 (The images breaking the visuals, wrong sizes/cropping)
 - added helper class to save user answers 
+- added header component (we will use this throughout the project)
 
 Lucas,
 
