@@ -1,0 +1,20 @@
+﻿<MudElement Class="d-flex">
+    <MudText Typo="Typo.h4">
+        @Title
+    </MudText>
+    <MudSpacer />
+    <MudTooltip Text="Safeguarding Team">
+        <MudLink Href="https://nclan.interactgo.com/page/4816" Target="_blank">
+            <MudIcon Icon="@Icons.Material.Filled.Info" Style="font-size: 3rem;"></MudIcon>
+        </MudLink>
+    </MudTooltip>
+    <MudTooltip Text="Safeguarding Disclosure Form">
+        <MudLink Href="https://forms.office.com/e/41G9CDSQFm" Target="_blank" Class="ms-2">
+            <MudIcon Icon="@Icons.Material.Filled.DocumentScanner" Style="font-size: 3rem;"></MudIcon>
+        </MudLink>
+    </MudTooltip>
+</MudElement>
+
+@code {
+    [Parameter] public string Title { get; set; } = "Default Title";
+}

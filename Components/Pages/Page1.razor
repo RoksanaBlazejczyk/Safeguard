@@ -1,76 +1,58 @@
 ﻿@page "/page1"
-@using SafeGuard.Services
 @inject NavigationManager Nav
 @inject SafeGuard.Services.LayoutState LayoutState
-<div style="background-color: #B9B5B0; height: 100vh;">
+@inject CollectedAnswers Answer
 
-    <h1>Safe Guard</h1>
+<MudContainer Class="d-flex justify-center mt-3">
+    <MudCard Elevation="5" Class="p-3 w-100">
 
-    <MudPaper Class="d-flex justify-content-between gap-" Style="width: 100%;" Elevation="0">
+        <SafeguardingHeader Title="Who does this potential safeguarding incident impact?" />
 
-        @* Child *@
-        <div class="d-flex flex-column align-items-center">
-            <MudPaper Class="d-flex flex-column align-items-center justify-content-center"
-                      Width="300px" Height="100%"
-                      Style="background-color: #40B37C; border-radius: 15px; padding: 20px;">
-                <div class="circle-container" style="background-color: #40B37C; border-radius: 50%; width: 150px; height: 150px; display: flex; align-items: center; justify-content: center;">
-                    <img src="images/child.png" alt="Child Icon" width="100" height="100" />
-                </div>
-                <MudButton OnClick="ToPage2" Variant="Variant.Filled" Color="Color.Success"
-                           Style="margin-top: 20px; width: 200px; font-size: 16px; transition: transform 0.3s ease-in-out;"
-                           Class="hover-scale">
-                    Select Child
-                </MudButton>
-            </MudPaper>
-        </div>
+        <MudGrid class="d-flex justify-center align-content-center" Style="margin-top: 3rem;">
+            <MudItem xs="12" sm="12" lg="4">
+                <MudCard>
+                    <MudCardMedia Image="images/child.png" Style="height: 250px; object-fit: contain;" />
+                    <MudCardContent>
+                        <MudText Typo="Typo.h6">Child (Under The Age of 18)</MudText>
+                    </MudCardContent>
+                    <MudCardActions>
+                        <MudButton OnClick="@(() => ToPage2("child"))" Variant="Variant.Filled" FullWidth="true" Color="Color.Primary">Select</MudButton>
+                    </MudCardActions>
+                </MudCard>
+            </MudItem>
+            <MudItem xs="12" sm="12" lg="4">
+                <MudCard>
+                    <MudCardMedia Image="images/adult.png" Style="height: 250px; object-fit: contain;" />
+                    <MudCardContent>
+                        <MudText Typo="Typo.h6">Adult</MudText>
+                    </MudCardContent>
+                    <MudCardActions>
+                        <MudButton OnClick="@(() => ToPage2("adult"))" Variant="Variant.Filled" FullWidth="true" Color="Color.Primary">Select</MudButton>
+                    </MudCardActions>
+                </MudCard>
+            </MudItem>
+            <MudItem xs="12" sm="12" lg="4">
+                <MudCard>
+                    <MudCardMedia Image="images/nlcStaff.png" Style="height: 250px; object-fit: contain;" />
+                    <MudCardContent>
+                        <MudText Typo="Typo.h6">NCL Staff Member</MudText>
+                    </MudCardContent>
+                    <MudCardActions>
+                        <MudButton OnClick="@(() => ToPage2("nclStaff"))" Variant="Variant.Filled" FullWidth="true" Color="Color.Primary">Select</MudButton>
+                    </MudCardActions>
+                </MudCard>
+            </MudItem>
+        </MudGrid>
 
-        @* Adult *@
-        <div class="d-flex flex-column align-items-center">
-            <MudPaper Class="d-flex flex-column align-items-center justify-content-center"
-                      Width="300px" Height="500px"
-                      Style="background-color: #3B6782; border-radius: 15px; padding: 20px;">
-                <div class="circle-container" style="background-color: #3B6782; border-radius: 50%; width: 150px; height: 150px; display: flex; align-items: center; justify-content: center;">
-                    <img src="images/adult.png" alt="Adult Icon" width="100" height="100" />
-                </div>
-                <MudButton OnClick="ToPage2" Variant="Variant.Filled" Color="Color.Primary"
-                           Style="margin-top: 20px; width: 200px; font-size: 16px; transition: transform 0.3s ease-in-out;"
-                           Class="hover-scale">
-                    Select Adult
-                </MudButton>
-            </MudPaper>
-        </div>
-
-        @* NCL Staff *@
-        <div class="d-flex flex-column align-items-center">
-            <MudPaper Class="d-flex flex-column align-items-center justify-content-center"
-                      Width="300px" Height="500px"
-                      Style="background-color: #E18A07; border-radius: 15px; padding: 20px;">
-                <div class="circle-container" style="background-color: #E18A07; border-radius: 50%; width: 150px; height: 150px; display: flex; align-items: center; justify-content: center;">
-                    <img src="images/nlcStaff.png" alt="NCL Staff Icon" width="100" height="100" />
-                </div>
-                <MudButton OnClick="ToPage2" Variant="Variant.Filled" Color="Color.Warning"
-                           Style="margin-top: 20px; width: 200px; font-size: 16px; transition: transform 0.3s ease-in-out;"
-                           Class="hover-scale">
-                    Select Staff Member
-                </MudButton>
-            </MudPaper>
-        </div>
-
-    </MudPaper>
-
-</div>
-
-@* Hover Effect Styling *@
-<style>
-    .hover-scale:hover {
-        transform: scale(1.1);
-        box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.5);
-    }
-</style>
+    </MudCard>
+</MudContainer>
 
 @code {
-    void ToPage2()
+    void ToPage2(string answer)
     {
+        //SAVING ANSWER IN HELPER CLASS (WE WILL COLLECT THEM ALL AND PROCESS/SAVE THEM IN A DB LATER)
+        Answer.Answer1 = answer;
+
         LayoutState.UpdateProgress(33); // Move to 33% when navigating to Page 2   
         Nav.NavigateTo("/page2");
     }

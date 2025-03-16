@@ -9,6 +9,7 @@ builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
 builder.Services.AddMudServices();
 builder.Services.AddScoped<LayoutState>();
+builder.Services.AddScoped<CollectedAnswers>();
 
 var app = builder.Build();
 

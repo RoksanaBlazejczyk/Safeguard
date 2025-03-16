@@ -2,16 +2,29 @@
 @using SafeGuard.Services
 @inject NavigationManager Navigation
 @inject SafeGuard.Services.LayoutState LayoutState
-<div style="background-color: #B9B5B0; height: 100vh;">
 
-    <MudContainer>
-        <MudCard>
-            <MudImage Src="images/page4NCL.png" Alt="Click to Navigate" Width="300" />
-            <MudButton OnClick="ToPage1" Color="Color.Primary">Next Page</MudButton>
-        </MudCard>
-    </MudContainer>
+<MudContainer Class="d-flex justify-center mt-3">
+    <MudCard Elevation="5" Class="p-3 w-100">
 
-</div>  @* Moved closing div before @code *@
+        <SafeguardingHeader Title="Safeguarding Decision Tool" />
+
+        <MudImage Style="max-width: 100%; height: auto; display: block; padding: 2rem;"
+                  Src="images/NCL_SG_01.png"
+                  Alt="NCL Logo" />
+
+        <MudElement Class="d-flex justify-content-center">
+            <MudButton OnClick="ToPage1"
+                       Variant="Variant.Filled"
+                       Color="Color.Primary"
+                       Class="pulse-glow">
+                Start Interactive Safeguarding Tool
+            </MudButton>
+        </MudElement>
+
+    </MudCard>
+</MudContainer>
+
+
 
 @code {
     protected override void OnInitialized()
