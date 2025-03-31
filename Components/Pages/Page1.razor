@@ -8,47 +8,40 @@
 
         <SafeguardingHeader Title="Who does this potential safeguarding incident impact?" />
 
-        <MudGrid Class="d-flex justify-center align-content-center" Style="margin: 3rem 0; gap: 2rem;">
-
-            <MudItem xs="12" sm="6" lg="3">
-                <MudCard Class="text-center" Style="height: 500px; display: flex; flex-direction: column; justify-content: space-between;">
-                    <MudCardMedia Image="images/child.png" Style="height: 300px; object-fit: contain;" />
-                    <MudCardContent Style="flex-grow: 1;">
+        <MudGrid class="d-flex justify-center align-content-center" Style="margin-top: 3rem;">
+            <MudItem xs="12" sm="12" lg="4">
+                <MudCard>
+                    <MudCardMedia Image="images/child.png" Style="height: 250px; object-fit: contain;" />
+                    <MudCardContent>
                         <MudText Typo="Typo.h6">Child (Under The Age of 18)</MudText>
-                        <MudText Class="mt-2" Style="color: grey;">For minors requiring assistance or parental consent.</MudText>
                     </MudCardContent>
                     <MudCardActions>
                         <MudButton OnClick="@(() => ToPage2("child"))" Variant="Variant.Filled" FullWidth="true" Color="Color.Primary">Select</MudButton>
                     </MudCardActions>
                 </MudCard>
             </MudItem>
-
-            <MudItem xs="12" sm="6" lg="3">
-                <MudCard Class="text-center" Style="height: 500px; display: flex; flex-direction: column; justify-content: space-between;">
-                    <MudCardMedia Image="images/adult.png" Style="height: 300px; object-fit: contain;" />
-                    <MudCardContent Style="flex-grow: 1;">
+            <MudItem xs="12" sm="12" lg="4">
+                <MudCard>
+                    <MudCardMedia Image="images/adult.png" Style="height: 250px; object-fit: contain;" />
+                    <MudCardContent>
                         <MudText Typo="Typo.h6">Adult</MudText>
-                        <MudText Class="mt-2" Style="color: grey;">For individuals over the age of 18.</MudText>
                     </MudCardContent>
                     <MudCardActions>
                         <MudButton OnClick="@(() => ToPage2("adult"))" Variant="Variant.Filled" FullWidth="true" Color="Color.Primary">Select</MudButton>
                     </MudCardActions>
                 </MudCard>
             </MudItem>
-
-            <MudItem xs="12" sm="6" lg="3">
-                <MudCard Class="text-center" Style="height: 500px; display: flex; flex-direction: column; justify-content: space-between;">
-                    <MudCardMedia Image="images/nlcStaff.png" Style="height: 300px; object-fit: contain;" />
-                    <MudCardContent Style="flex-grow: 1;">
+            <MudItem xs="12" sm="12" lg="4">
+                <MudCard>
+                    <MudCardMedia Image="images/nlcStaff.png" Style="height: 250px; object-fit: contain;" />
+                    <MudCardContent>
                         <MudText Typo="Typo.h6">NCL Staff Member</MudText>
-                        <MudText Class="mt-2" Style="color: grey;">For authorized NCL staff members only.</MudText>
                     </MudCardContent>
                     <MudCardActions>
                         <MudButton OnClick="@(() => ToPage2("nclStaff"))" Variant="Variant.Filled" FullWidth="true" Color="Color.Primary">Select</MudButton>
                     </MudCardActions>
                 </MudCard>
             </MudItem>
-
         </MudGrid>
 
     </MudCard>
@@ -57,10 +50,10 @@
 @code {
     void ToPage2(string answer)
     {
-        // SAVING ANSWER IN HELPER CLASS (WE WILL COLLECT THEM ALL AND PROCESS/SAVE THEM IN A DB LATER)
+        //SAVING ANSWER IN HELPER CLASS (WE WILL COLLECT THEM ALL AND PROCESS/SAVE THEM IN A DB LATER)
         Answer.Answer1 = answer;
 
-        LayoutState.UpdateProgress(33); // Move to 33% when navigating to Page 2
+        LayoutState.UpdateProgress(33); // Move to 33% when navigating to Page 2   
         Nav.NavigateTo("/page2");
     }
 }
