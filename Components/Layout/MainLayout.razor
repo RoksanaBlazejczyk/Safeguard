@@ -69,13 +69,17 @@
         string path = Navigation.Uri.Split('/').Last();
         progress = path switch
         {
-            "" => 0,       // Home
-            "page1" => 16, // Page 1
-            "page2" => 33, // Page 2
-            "page3" => 50, // Page 3
-            "page4" => 67, // Page 4
-            "page5" => 83, // Page 5
-            "page6" => 100, // Page6
+            "" => 0, //Index page
+            "page1" => 14, 
+            "page2" => 28, 
+            "page3" => 43, 
+            "page4" => 57, 
+            "page5" => 71, 
+            "page6" => 86,
+            "page7" => 86,
+            "page8" => 71,
+            "page9" => 86,
+            "page10" => 100, //End page
             _ => progress
         };
     }

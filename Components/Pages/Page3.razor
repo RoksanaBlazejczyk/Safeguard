@@ -2,6 +2,8 @@
 @using SafeGuard.Services
 @inject NavigationManager Nav
 @inject SafeGuard.Services.LayoutState LayoutState
+@inject CollectedAnswers Answer
+
 <div style="background-color: #B9B5B0; height: 100vh;">
     <MudGrid Justify="Justify.Center">
         <MudItem xs="12" sm="8" md="6">
@@ -129,37 +131,41 @@
 
     @*Method if person clicks Suspicion of neglect/abuse*@
 
-    void ToPage4Suspicion()
+    void ToPage4Suspicion(String answer)
 
     {
-        LayoutState.UpdateProgress(67); // Move to 67% when navigating to Page 4
+        Answer.Answer3 = answer;
+        LayoutState.UpdateProgress(57); // Move to 67% when navigating to Page 4
         Nav.NavigateTo("/page4");
     }
 
     @*Method if person clicks Allegation of neglect/abuse*@
 
-    void ToPage4Allegation()
+    void ToPage4Allegation(String answer)
 
     {
-        LayoutState.UpdateProgress(67);
+        Answer.Answer3 = answer;
+        LayoutState.UpdateProgress(57);
         Nav.NavigateTo("/page4");
     }
 
     @*Method if person clicks Concerns about someone’s behaviour*@
 
-    void ToPage4Concern()
+    void ToPage4Concern(String answer)
 
     {
-        LayoutState.UpdateProgress(67);
+        Answer.Answer3 = answer;
+        LayoutState.UpdateProgress(57);
         Nav.NavigateTo("/page4");
     }
 
     @*Method if person clicks At risk to self or others*@
 
-    void ToPage4Risk()
+    void ToPage4Risk(String answer)
 
     {
-        LayoutState.UpdateProgress(67);
+        Answer.Answer3 = answer;
+        LayoutState.UpdateProgress(57);
         Nav.NavigateTo("/page4");
     }
 

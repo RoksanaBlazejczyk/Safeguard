@@ -2,6 +2,7 @@
 @using SafeGuard.Services
 @inject NavigationManager Nav
 @inject SafeGuard.Services.LayoutState LayoutState
+@inject CollectedAnswers Answer
 
 <h3>After being referred to Safeguarding Board/Executive Board</h3>
 @*left*@
@@ -32,9 +33,10 @@
 
         Nav.NavigateTo("/End");
         }
-        void ToPage8()
+        void ToPage8(String answer)
         {
-        LayoutState.UpdateProgress(100);
+        Answer.Answer9 = answer;
+        LayoutState.UpdateProgress(71);
 
         Nav.NavigateTo("/page8");
         }

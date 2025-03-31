@@ -11,7 +11,7 @@
         <MudGrid class="d-flex justify-center align-content-center" Style="margin-top: 3rem;">
             <MudItem xs="12" sm="12" lg="4">
                 <MudCard>
-                    <MudCardMedia Image="images/child.png" Style="height: 250px; object-fit: contain;" />
+                    <MudCardMedia Image="images/child.png" Style="height: 250px; scale-down: contain;" />
                     <MudCardContent>
                         <MudText Typo="Typo.h6">Child (Under The Age of 18)</MudText>
                     </MudCardContent>
@@ -53,7 +53,7 @@
         //SAVING ANSWER IN HELPER CLASS (WE WILL COLLECT THEM ALL AND PROCESS/SAVE THEM IN A DB LATER)
         Answer.Answer1 = answer;
 
-        LayoutState.UpdateProgress(33); // Move to 33% when navigating to Page 2   
+        LayoutState.UpdateProgress(28);  
         Nav.NavigateTo("/page2");
     }
 }
