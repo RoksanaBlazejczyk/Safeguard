@@ -2,6 +2,8 @@
 @using SafeGuard.Services
 @inject NavigationManager Nav
 @inject SafeGuard.Services.LayoutState LayoutState
+@inject CollectedAnswers Answer
+
 <div style="background-color: #B9B5B0; height: 100vh;">
 <MudGrid Justify="Justify.Center">
     <MudItem xs="12" sm="8" md="6">
@@ -125,24 +127,28 @@
 </style>
 
 @code {
-    void ToPage3Person()
+    void ToPage3Person(String answer)
     {
-        LayoutState.UpdateProgress(50); // Move to 50% when navigating to Page 3
+        Answer.Answer2 = answer;
+        LayoutState.UpdateProgress(43); // Move to 43% when navigating to Page 3
         Nav.NavigateTo("/page3");
     }
-    void ToPage3Student()
+    void ToPage3Student(String answer)
     {
-        LayoutState.UpdateProgress(50); 
+        Answer.Answer2 = answer;
+        LayoutState.UpdateProgress(43); 
         Nav.NavigateTo("/page3");
     }
-    void ToPage3Staff()
+    void ToPage3Staff(String answer)
     {
-        LayoutState.UpdateProgress(50);
+        Answer.Answer2 = answer;
+        LayoutState.UpdateProgress(43);
         Nav.NavigateTo("/page3");
     }
-    void ToPage3Visitor()
+    void ToPage3Visitor(String answer)
     {
-        LayoutState.UpdateProgress(50);
+        Answer.Answer2 = answer;
+        LayoutState.UpdateProgress(43);
         Nav.NavigateTo("/page3");
     }
 }

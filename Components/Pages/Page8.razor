@@ -2,6 +2,7 @@
 @using SafeGuard.Services
 @inject NavigationManager Nav
 @inject SafeGuard.Services.LayoutState LayoutState
+@inject CollectedAnswers Answer
 
 <h3>Staff Member Action Reguired </h3>
 <h2>If this is a time sensitive matter please contact an Academic Leader, Head of Department or another member of the Safeguarfing Team straight away for guidance.</h2>
@@ -30,15 +31,17 @@ Class="hover-scale">
     ARROW BUTTON
 </MudButton>
 @code {
-    void ToPageEnd()
+    void ToPageEnd(String answer)
     {
+        Answer.Answer8 = answer;
         LayoutState.UpdateProgress(100);
 
     Nav.NavigateTo("/page10");
     }
-        void ToPage9()
+        void ToPage9(String answer)
         {
-            LayoutState.UpdateProgress(100);
+        Answer.Answer8 = answer;
+            LayoutState.UpdateProgress(86);
 
             Nav.NavigateTo("/page9");
         }

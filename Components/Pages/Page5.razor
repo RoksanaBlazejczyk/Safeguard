@@ -2,6 +2,8 @@
 @using SafeGuard.Services
 @inject NavigationManager Nav
 @inject SafeGuard.Services.LayoutState LayoutState
+@inject CollectedAnswers Answer
+
 <h1>Where did the School Pupil Disclose?</h1>
 <br />
 <div style="background-color: #B9B5B0; height: 100vh;">
@@ -27,14 +29,16 @@
 </div>
 
 @code {
-    void ToPage7()
+    void ToPage7(String answer)
     {
-        LayoutState.UpdateProgress(100);
+        Answer.Answer5 = answer;
+        LayoutState.UpdateProgress(86);
         Nav.NavigateTo("/page7");
     }
-    void ToPage6()
+    void ToPage6(String answer)
     {
-        LayoutState.UpdateProgress(100);
+        Answer.Answer5 = answer;
+        LayoutState.UpdateProgress(86);
         Nav.NavigateTo("/page6");
     }
 }

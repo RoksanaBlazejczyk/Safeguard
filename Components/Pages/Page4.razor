@@ -2,6 +2,8 @@
 @using SafeGuard.Services
 @inject NavigationManager Nav
 @inject SafeGuard.Services.LayoutState LayoutState
+@inject CollectedAnswers Answer
+
 <h1>It is a School Student or NCL Student?</h1>
 <br />
 <div style="background-color: #B9B5B0; height: 100vh;">
@@ -52,14 +54,16 @@
 
 
 @code {
-    void ToPageSchool()
+    void ToPageSchool(String answer)
     {
-        LayoutState.UpdateProgress(84); // Move to 84% when navigating to Page 5
+        Answer.Answer4 = answer;
+        LayoutState.UpdateProgress(71); // Move to 84% when navigating to Page 5
         Nav.NavigateTo("/page5");
     }
-    void ToPageNCL()
+    void ToPageNCL(String answer)
     {
-        LayoutState.UpdateProgress(84);
+        Answer.Answer4 = answer;
+        LayoutState.UpdateProgress(71);
         Nav.NavigateTo("/page8");
     }
 }
