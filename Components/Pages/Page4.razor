@@ -2,54 +2,53 @@
 @using SafeGuard.Services
 @inject NavigationManager Nav
 @inject SafeGuard.Services.LayoutState LayoutState
-<h1>It is a School Student or NCL Student?</h1>
-<br />
-<div style="background-color: #B9B5B0; height: 100vh;">
+@inject CollectedAnswers Answer
 
-<MudGrid Justify="Justify.Center" AlignItems="AlignItems.Center">
+<MudContainer Class="d-flex justify-center mt-3">
+    <MudCard Elevation="5" Class="p-3 w-100">
 
-    @* Individual Raised Concern *@
-    <MudItem xs="6" sm="6" md="6" class="d-flex justify-content-center align-items-center">
-        <MudPaper Class="d-flex flex-column align-items-center justify-content-center"
-                  Width="256px" Height="200px"
-                  Style="background-color: #007BFF; border-radius: 15px; padding: 20px;">
-                <div class="circle-container" style="background-color: #007BFF; border-radius: 50%; width: 100px; height: 100px; display: flex; align-items: center; justify-content: center;">
-                <img src="images/page4school.png" alt="Individual Concern Icon" width="70" height="70" />
-            </div>
-            <MudButton OnClick="ToPageSchool" Variant="Variant.Filled" Color="Color.Primary"
-                       Style="margin-top: 10px; width: 200px; font-size: 16px; transition: transform 0.3s ease-in-out;"
-                       Class="hover-scale">
-                School Student
-            </MudButton>
-        </MudPaper>
-    </MudItem>
+        <MudGrid Justify="Justify.Center">
+            <MudItem xs="12">
+                <MudText Typo="Typo.h4" Align="Align.Center" Class="mb-4" Style="font-weight: bold; color: #333;">
+                    Is this a School Student or NCL Student?
+                </MudText>
+            </MudItem>
+        </MudGrid>
 
-    @* Student Raised Concern *@
-    <MudItem xs="6" sm="6" md="6" class="d-flex justify-content-center align-items-center">
-        <MudPaper Class="d-flex flex-column align-items-center justify-content-center"
-                  Width="256px" Height="200px"
-                  Style="background-color: #28A745; border-radius: 15px; padding: 20px;">
-                <div class="circle-container" style="background-color: #28A745; border-radius: 50%; width: 100px; height: 100px; display: flex; align-items: center; justify-content: center;">
-                <img src="images/page4NCL.png" alt="Student Concern Icon" width="70" height="70" />
-            </div>
-            <MudButton OnClick="ToPageNCL" Variant="Variant.Filled" Color="Color.Success"
-                       Style="margin-top: 10px; width: 200px; font-size: 16px; transition: transform 0.3s ease-in-out;"
-                       Class="hover-scale">
-                NCL Student
-            </MudButton>
-        </MudPaper>
-    </MudItem>
+        <MudGrid Class="d-flex justify-center align-content-center" Style="margin: 3rem 0; gap: 2rem;">
 
-</MudGrid>
-</div>
-@* Hover Effect Styling *@
-<style>
-    .hover-scale:hover {
-        transform: scale(1.1);
-        box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.5);
-    }
-</style>
+            <!-- School Student -->
+            <MudItem xs="12" sm="6" lg="3">
+                <MudCard Class="text-center" Style="height: 500px; display: flex; flex-direction: column; justify-content: space-between;">
+                    <MudCardMedia Image="images/page4school.png" Style="height: 300px; object-fit: contain;" />
+                    <MudCardContent Style="flex-grow: 1;">
+                        <MudText Typo="Typo.h6">School Student</MudText>
+                        <MudText Class="mt-2" Style="color: grey;">For students attending school.</MudText>
+                    </MudCardContent>
+                    <MudCardActions>
+                        <MudButton OnClick="ToPageSchool" Variant="Variant.Filled" FullWidth="true" Color="Color.Primary">Select</MudButton>
+                    </MudCardActions>
+                </MudCard>
+            </MudItem>
 
+            <!-- NCL Student -->
+            <MudItem xs="12" sm="6" lg="3">
+                <MudCard Class="text-center" Style="height: 500px; display: flex; flex-direction: column; justify-content: space-between;">
+                    <MudCardMedia Image="images/page4NCL.png" Style="height: 300px; object-fit: contain;" />
+                    <MudCardContent Style="flex-grow: 1;">
+                        <MudText Typo="Typo.h6">NCL Student</MudText>
+                        <MudText Class="mt-2" Style="color: grey;">For NCL students.</MudText>
+                    </MudCardContent>
+                    <MudCardActions>
+                        <MudButton OnClick="ToPageNCL" Variant="Variant.Filled" FullWidth="true" Color="Color.Primary">Select</MudButton>
+                    </MudCardActions>
+                </MudCard>
+            </MudItem>
+
+        </MudGrid>
+
+    </MudCard>
+</MudContainer>
 
 @code {
     void ToPageSchool()
@@ -57,9 +56,11 @@
         LayoutState.UpdateProgress(84); // Move to 84% when navigating to Page 5
         Nav.NavigateTo("/page5");
     }
+
     void ToPageNCL()
     {
         LayoutState.UpdateProgress(84);
         Nav.NavigateTo("/page8");
     }
 }
+s

@@ -2,127 +2,52 @@
 @using SafeGuard.Services
 @inject NavigationManager Nav
 @inject SafeGuard.Services.LayoutState LayoutState
-<div style="background-color: #B9B5B0; height: 100vh;">
-<MudGrid Justify="Justify.Center">
-    <MudItem xs="12" sm="8" md="6">
-        <h1 style="text-align: center;">How have you become aware of this incident?</h1>
-    </MudItem>
-</MudGrid>
-<br />
-<MudGrid Justify="Justify.Center" AlignItems="AlignItems.Center">
 
-    @* Individual Concern *@
-    <MudItem xs="6" sm="6" md="6" class="d-flex justify-content-center" style="display: none;">
-        <MudPaper Class="d-flex flex-column align-items-center justify-content-center"
-                  Width="256px" Height="200px"
-                  Style="background-color: #FFFFFF; border-radius: 15px; padding: 20px; box-shadow: 2px 2px 10px rgba(0,0,0,0.1);">
-            <MudButton OnClick="ToPage3Person" Variant="Variant.Filled"
-                       Class="animated-button blue-button">
+<MudContainer Class="d-flex justify-center" Style="height: 100vh; background-color: #B9B5B0;">
+
+    <!-- Header Section at the top -->
+    <MudGrid Justify="Justify.Center" Style="margin-top: 2rem;">
+        <MudItem xs="12">
+            <MudText Typo="Typo.h3" Align="Align.Center" Class="mb-4" Style="font-weight: bold; color: #333;">
+                How have you become aware of this incident?
+            </MudText>
+        </MudItem>
+    </MudGrid>
+
+    <!-- Button Grid -->
+    <MudGrid Justify="Justify.Center" AlignItems="AlignItems.Center" Spacing="3" Style="margin-top: 2rem;">
+
+        <!-- Individual Concern -->
+        <MudItem xs="12" sm="6" md="3" class="d-flex justify-content-center">
+            <MudButton OnClick="ToPage3Person" Variant="Variant.Filled" Color="Color.Primary" FullWidth="true" Class="animated-button">
                 Select Individual
             </MudButton>
-        </MudPaper>
-    </MudItem>
+        </MudItem>
 
-    @* Student Concern *@
-    <MudItem xs="6" sm="6" md="6" class="d-flex justify-content-center" style="display: none;">
-        <MudPaper Class="d-flex flex-column align-items-center justify-content-center"
-                  Width="256px" Height="200px"
-                  Style="background-color: #FFFFFF; border-radius: 15px; padding: 20px; box-shadow: 2px 2px 10px rgba(0,0,0,0.1);">
-            <MudButton OnClick="ToPage3Student" Variant="Variant.Filled"
-                       Class="animated-button green-button">
+        <!-- Student Concern -->
+        <MudItem xs="12" sm="6" md="3" class="d-flex justify-content-center">
+            <MudButton OnClick="ToPage3Student" Variant="Variant.Filled" Color="Color.Primary" FullWidth="true" Class="animated-button">
                 Select Student
             </MudButton>
-        </MudPaper>
-    </MudItem>
+        </MudItem>
 
-    @* NCL Staff Concern *@
-    <MudItem xs="6" sm="6" md="6" class="d-flex justify-content-center" style="display: none;">
-        <MudPaper Class="d-flex flex-column align-items-center justify-content-center"
-                  Width="256px" Height="200px"
-                  Style="background-color: #FFFFFF; border-radius: 15px; padding: 20px; box-shadow: 2px 2px 10px rgba(0,0,0,0.1);">
-            <MudButton OnClick="ToPage3Staff" Variant="Variant.Filled"
-                       Class="animated-button orange-button">
+        <!-- NCL Staff Concern -->
+        <MudItem xs="12" sm="6" md="3" class="d-flex justify-content-center">
+            <MudButton OnClick="ToPage3Staff" Variant="Variant.Filled" Color="Color.Primary" FullWidth="true" Class="animated-button">
                 Select Staff Member
             </MudButton>
-        </MudPaper>
-    </MudItem>
+        </MudItem>
 
-    @* Visitor Concern *@
-    <MudItem xs="6" sm="6" md="6" class="d-flex justify-content-center" style="display: none;">
-        <MudPaper Class="d-flex flex-column align-items-center justify-content-center"
-                  Width="256px" Height="200px"
-                  Style="background-color: #FFFFFF; border-radius: 15px; padding: 20px; box-shadow: 2px 2px 10px rgba(0,0,0,0.1);">
-            <MudButton OnClick="ToPage3Visitor" Variant="Variant.Filled"
-                       Class="animated-button grey-button">
+        <!-- Visitor Concern -->
+        <MudItem xs="12" sm="6" md="3" class="d-flex justify-content-center">
+            <MudButton OnClick="ToPage3Visitor" Variant="Variant.Filled" Color="Color.Primary" FullWidth="true" Class="animated-button">
                 Select Visitor
             </MudButton>
-        </MudPaper>
-    </MudItem>
+        </MudItem>
 
-</MudGrid>
-</div>
+    </MudGrid>
 
-@* Button Animations & Styling *@
-<style>
-    .animated-button {
-        margin-top: 10px;
-        width: 200px;
-        font-size: 16px;
-        transition: all 0.3s ease-in-out;
-        border-radius: 8px;
-        padding: 10px;
-    }
-
-        /* Hover effect with scaling and glow */
-        .animated-button:hover {
-            transform: scale(1.1);
-            box-shadow: 0px 0px 12px rgba(255, 165, 0, 0.8); /* Orange glow effect */
-        }
-
-    /* Blue Button Styling */
-    .blue-button {
-        background-color: #1E90FF !important;
-        color: white;
-        border: none;
-    }
-
-        .blue-button:hover {
-            background: linear-gradient(90deg, #1E90FF, #FFA500); /* Blue to Orange gradient */
-        }
-
-    /* Green Button Styling */
-    .green-button {
-        background-color: #32CD32 !important;
-        color: white;
-        border: none;
-    }
-
-        .green-button:hover {
-            background: linear-gradient(90deg, #32CD32, #FFA500); /* Green to Orange gradient */
-        }
-
-    /* Orange Button Styling */
-    .orange-button {
-        background-color: #FFA500 !important;
-        color: white;
-        border: none;
-    }
-
-        .orange-button:hover {
-            background: linear-gradient(90deg, #FFA500, #1E90FF); /* Orange to Blue gradient */
-        }
-
-    /* Grey Button Styling */
-    .grey-button {
-        background-color: #F5F5F5 !important;
-        color: black;
-        border: none;
-    }
-
-        .grey-button:hover {
-            background: linear-gradient(90deg, #F5F5F5, #1E90FF); /* Grey to Blue gradient */
-        }
-</style>
+</MudContainer>
 
 @code {
     void ToPage3Person()
@@ -130,20 +55,22 @@
         LayoutState.UpdateProgress(50); // Move to 50% when navigating to Page 3
         Nav.NavigateTo("/page3");
     }
+
     void ToPage3Student()
     {
-        LayoutState.UpdateProgress(50); 
+        LayoutState.UpdateProgress(50);
         Nav.NavigateTo("/page3");
     }
+
     void ToPage3Staff()
     {
         LayoutState.UpdateProgress(50);
         Nav.NavigateTo("/page3");
     }
+
     void ToPage3Visitor()
     {
         LayoutState.UpdateProgress(50);
         Nav.NavigateTo("/page3");
     }
 }
-
