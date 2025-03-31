@@ -14,33 +14,21 @@
 <h2>3. You may be contacted by your Academic Leader/ Head of Department or a member of the Safeguarding Team to discuss this refferal.</h2>
 
 @*left button*@
-<MudButton OnClick="ToPageEnd" Variant="Variant.Filled" Color="Color.Primary"
-Style="margin-top: 10px; width: 200px; font-size: 16px; transition: transform 0.3s ease-in-out;"
-Class="hover-scale">
-    Concerns Allayed
-</MudButton>
+<MudButton OnClick="@(() => ToPageEnd("concernsAllayed"))" Variant="Variant.Filled" FullWidth="true" Color="Color.Primary">Select</MudButton>
 @*right button*@
-<MudButton OnClick="ToPage9" Variant="Variant.Filled" Color="Color.Primary"
-Style="margin-top: 10px; width: 200px; font-size: 16px; transition: transform 0.3s ease-in-out;"
-Class="hover-scale">
-    Ongoing Monitoring
-</MudButton>
-<MudButton OnClick="ToPageEnd" Variant="Variant.Filled" Color="Color.Primary"
-           Style="margin-top: 10px; width: 200px; font-size: 16px; transition: transform 0.3s ease-in-out;"
-           Class="hover-scale">
-    ARROW BUTTON
-</MudButton>
+<MudButton OnClick="@(() => ToPage9("ongoingMonitoring"))" Variant="Variant.Filled" FullWidth="true" Color="Color.Primary">Select</MudButton>
+
 @code {
     void ToPageEnd(String answer)
     {
-        Answer.Answer8 = answer;
+        Answer.Answer6 = answer;
         LayoutState.UpdateProgress(100);
 
     Nav.NavigateTo("/page10");
     }
         void ToPage9(String answer)
         {
-        Answer.Answer8 = answer;
+        Answer.Answer6 = answer;
             LayoutState.UpdateProgress(86);
 
             Nav.NavigateTo("/page9");

@@ -8,9 +8,7 @@
 @*left*@
 <MudItem xs="6" sm="6" md="6" class="d-flex justify-content-center align-items-center">
     <MudPaper Class="mud-theme-primary d-flex justify-content-center align-items-center" Width="256px" Height="128px">
-        <MudButton OnClick="ToPage8" Color="Color.Primary" Style="color: white; background-color: #007bff;">
-            Further Conerns at a later date - Contact Safeguarding Board/Safeguarding Team
-        </MudButton>
+        <MudButton OnClick="@(() => ToPage8("concernsLaterDate"))" Variant="Variant.Filled" FullWidth="true" Color="Color.Primary">Further concerns at a later date</MudButton>
     </MudPaper>
 </MudItem>
 @*right*@
@@ -35,7 +33,7 @@
         }
         void ToPage8(String answer)
         {
-        Answer.Answer9 = answer;
+        Answer.Answer7 = answer;
         LayoutState.UpdateProgress(71);
 
         Nav.NavigateTo("/page8");

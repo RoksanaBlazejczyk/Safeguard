@@ -4,46 +4,37 @@
 @inject SafeGuard.Services.LayoutState LayoutState
 @inject CollectedAnswers Answer
 
-<h1>It is a School Student or NCL Student?</h1>
-<br />
-<div style="background-color: #B9B5B0; height: 100vh;">
+<MudContainer Class="d-flex justify-center mt-3">
+    <MudCard Elevation="5" Class="p-3 w-100">
+        <SafeguardingHeader Title="Is it a School Student or an NCL Student?" />
 
-<MudGrid Justify="Justify.Center" AlignItems="AlignItems.Center">
+        <MudGrid class="d-flex justify-center align-content-center" Style="margin-top: 3rem;">
+            <MudItem xs="12" sm="12" lg="6">
+                <MudCard>
+                    <MudCardContent class="d-flex flex-column align-items-center">
+                        <MudText Typo="Typo.h6">School Student</MudText>
+                    </MudCardContent>
+                    <MudCardMedia Image="images/page4school.png" Style="height: 250px; width: 250px; object-fit: contain; margin-bottom: 16px;" />
+                    <MudCardActions>
+                        <MudButton OnClick="@(() => ToPageSchool("schoolStudent"))" Variant="Variant.Filled" FullWidth="true" Color="Color.Primary">Select</MudButton>
+                    </MudCardActions>
+                </MudCard>
+            </MudItem>
+            <MudItem xs="12" sm="12" lg="6">
+                <MudCard>
+                    <MudCardContent class="d-flex flex-column align-items-center">
+                        <MudText Typo="Typo.h6">NCL Student</MudText>
+                    </MudCardContent>
+                    <MudCardMedia Image="images/page4NCL.png" Style="height: 250px; width: 250px; object-fit: contain; margin-bottom: 16px;" />
+                    <MudCardActions>
+                        <MudButton OnClick="@(() => ToPageNCL("nclStudent"))" Variant="Variant.Filled" FullWidth="true" Color="Color.Primary">Select</MudButton>
+                    </MudCardActions>
+                </MudCard>
+            </MudItem>
+        </MudGrid>
+    </MudCard>
+</MudContainer>
 
-    @* Individual Raised Concern *@
-    <MudItem xs="6" sm="6" md="6" class="d-flex justify-content-center align-items-center">
-        <MudPaper Class="d-flex flex-column align-items-center justify-content-center"
-                  Width="256px" Height="200px"
-                  Style="background-color: #007BFF; border-radius: 15px; padding: 20px;">
-                <div class="circle-container" style="background-color: #007BFF; border-radius: 50%; width: 100px; height: 100px; display: flex; align-items: center; justify-content: center;">
-                <img src="images/page4school.png" alt="Individual Concern Icon" width="70" height="70" />
-            </div>
-            <MudButton OnClick="ToPageSchool" Variant="Variant.Filled" Color="Color.Primary"
-                       Style="margin-top: 10px; width: 200px; font-size: 16px; transition: transform 0.3s ease-in-out;"
-                       Class="hover-scale">
-                School Student
-            </MudButton>
-        </MudPaper>
-    </MudItem>
-
-    @* Student Raised Concern *@
-    <MudItem xs="6" sm="6" md="6" class="d-flex justify-content-center align-items-center">
-        <MudPaper Class="d-flex flex-column align-items-center justify-content-center"
-                  Width="256px" Height="200px"
-                  Style="background-color: #28A745; border-radius: 15px; padding: 20px;">
-                <div class="circle-container" style="background-color: #28A745; border-radius: 50%; width: 100px; height: 100px; display: flex; align-items: center; justify-content: center;">
-                <img src="images/page4NCL.png" alt="Student Concern Icon" width="70" height="70" />
-            </div>
-            <MudButton OnClick="ToPageNCL" Variant="Variant.Filled" Color="Color.Success"
-                       Style="margin-top: 10px; width: 200px; font-size: 16px; transition: transform 0.3s ease-in-out;"
-                       Class="hover-scale">
-                NCL Student
-            </MudButton>
-        </MudPaper>
-    </MudItem>
-
-</MudGrid>
-</div>
 
 @code {
     void ToPageSchool(String answer)
