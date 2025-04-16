@@ -4,22 +4,25 @@
 @inject NavigationManager Nav
 @inject SafeGuard.Services.LayoutState LayoutState
 
+<MudContainer MaxWidth="MaxWidth.Medium" Class="d-flex justify-center" Style="height: 80vh;">
+    <MudStack Spacing="2" AlignItems="AlignItems.Center" JustifyContent="Center" Style="margin-top: auto; margin-bottom: auto;">
+        <div>
+            <h2>Thank you very much for following processes in our Safeguarding Decision Tool.</h2>
+            <h2>You may be contacted for further information by a member of the Safeguarding Board, a student advisor, a social worker, or the Police at a later date.</h2>
+            <h2>It is all of our duty to look out for every member of the NCL, and the wider Lanarkshire Community.</h2>
+        </div>
 
-<h3>End of Process</h3>
-<h2>Thank you very much for following processes in our Safeguarding Decision Tool.</h2>
-<h2>You may be contacted for further information by a member of the Safeguarding Board, a strudent advisor, a social worker or the Police at a later date.</h2>
-<h2>Is is all of our duty to look out for every member of the NCL, and wider Lanarkshire Community.</h2>
-<MudButton OnClick="HomePage" Variant="Variant.Filled" Color="Color.Primary"
-           Style="margin-top: 10px; width: 200px; font-size: 16px; transition: transform 0.3s ease-in-out;"
-           Class="hover-scale">
-    END House Pic - back to home page
-</MudButton>
+        <!-- Image Button under the text, centered in the content -->
+        <MudButton OnClick="HomePage" Variant="Variant.Filled" Color="Color.Primary"
+                   Style="background-image: url('/images/home.png'); background-size: contain; background-repeat: no-repeat; background-position: center; width: 120px; height: 120px; border-radius: 50%; font-size: 0px; padding: 0px; transition: transform 0.3s ease-in-out;">
+        </MudButton>
+    </MudStack>
+</MudContainer>
 
 @code {
-     void HomePage()
+    void HomePage()
     {
         LayoutState.UpdateProgress(100);
         Nav.NavigateTo("/");
     }
-
 }
