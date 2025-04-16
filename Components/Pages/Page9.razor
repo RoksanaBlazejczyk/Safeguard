@@ -4,26 +4,59 @@
 @inject SafeGuard.Services.LayoutState LayoutState
 @inject CollectedAnswers Answer
 
-<h3>After being referred to Safeguarding Board/Executive Board</h3>
-@*left*@
-<MudItem xs="6" sm="6" md="6" class="d-flex justify-content-center align-items-center">
-    <MudPaper Class="mud-theme-primary d-flex justify-content-center align-items-center" Width="256px" Height="128px">
-        <MudButton OnClick="@(() => ToPage8("concernsLaterDate"))" Variant="Variant.Filled" FullWidth="true" Color="Color.Primary">Further concerns at a later date</MudButton>
-    </MudPaper>
-</MudItem>
-@*right*@
-<MudItem xs="6" sm="6" md="6" class="d-flex justify-content-center align-items-center">
-    <MudPaper Class="mud-theme-primary d-flex justify-content-center align-items-center" Width="256px" Height="128px">
-        <MudButton OnClick="ToAP1Form" Color="Color.Primary" Style="color: white; background-color: #007bff;">
-            Completetion of AP 1 Form (For Adults) - to be sent to Social Work
-        </MudButton>
-    </MudPaper>
-</MudItem>
-    <MudButton OnClick="ToPageEnd" Variant="Variant.Filled" Color="Color.Primary"
-               Style="margin-top: 10px; width: 200px; font-size: 16px; transition: transform 0.3s ease-in-out;"
-               Class="hover-scale">
-        ARROW BUTTON
-    </MudButton>
+<MudContainer Class="d-flex justify-center mt-3">
+    <MudCard Elevation="5" Class="p-3 w-100">
+        <SafeguardingHeader Title="After being referred to Safeguarding Board/Executive Board" />
+
+        <MudGrid Class="d-flex justify-center align-content-center" Style="margin-top: 2rem;">
+            <MudItem xs="12" sm="12" lg="6">
+                <MudCard Style="background-color: #e0e0e0; border-radius: 8px; padding: 4px 8px 8px 8px;">
+                    <MudCardContent Class="d-flex justify-center text-center" Style="padding: 4px 0;">
+                    </MudCardContent>
+                    <MudCardActions Style="padding: 8px;">
+                        <MudButton OnClick="@(() => ToPage8("concernsLaterDate"))"
+                                   Variant="Variant.Filled"
+                                   FullWidth="true"
+                                   Color="Color.Primary"
+                                   Style="height: 150px; font-size: 16px; padding: 12px 16px; border-radius: 4px; border: 2px solid #ccc;">
+                            Further concerns at a later date - Contact Safeguarding Board/Safeguarding Team
+                        </MudButton>
+                    </MudCardActions>
+                </MudCard>
+            </MudItem>
+
+            <MudItem xs="12" sm="12" lg="6">
+                <MudCard Style="background-color: #e0e0e0; border-radius: 8px; padding: 4px 8px 8px 8px;">
+                    <MudCardContent Class="d-flex justify-center text-center" Style="padding: 4px 0;">
+                    </MudCardContent>
+                    <MudCardActions Style="padding: 8px;">
+                        <MudButton OnClick="ToAP1Form"
+                                   Variant="Variant.Filled"
+                                   FullWidth="true"
+                                   Color="Color.Primary"
+                                   Style="height: 150px; font-size: 16px; padding: 12px 16px; border-radius: 4px; border: 2px solid #ccc;">
+                            Completion of AP 1 Form (For Adults) - to be sent to Social Work
+                        </MudButton>
+                    </MudCardActions>
+                </MudCard>
+            </MudItem>
+            <MudItem xs="12">
+                <div class="d-flex justify-center">
+                    <MudButton OnClick="ToPageEnd"
+                               Variant="Variant.Filled"
+                               Color="Color.Primary"
+                               Size="Size.Large"
+                               Style="margin-top: 20px;">
+                                End
+                        <MudIcon Icon="@Icons.Material.Filled.ArrowForward" />
+                    </MudButton>
+                </div>
+            </MudItem>
+        </MudGrid>
+    </MudCard>
+</MudContainer>
+
+
     @code {
         void ToPageEnd()
         {
