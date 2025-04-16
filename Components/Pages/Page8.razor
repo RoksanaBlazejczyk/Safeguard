@@ -4,35 +4,77 @@
 @inject SafeGuard.Services.LayoutState LayoutState
 @inject CollectedAnswers Answer
 
-<h3>Staff Member Action Reguired </h3>
-<h2>If this is a time sensitive matter please contact an Academic Leader, Head of Department or another member of the Safeguarfing Team straight away for guidance.</h2>
-<h2>(Click here(link) for Safeguarding Team Contact Information)</h2>
+<MudStack AlignItems="AlignItems.Center" JustifyContent="Center" Spacing="2">
+    <!-- Title with Exclamation Icon -->
+    <MudText Typo="Typo.h3" Color="Color.Error">
+        <MudIcon Icon="fas fa-exclamation-circle" Color="Color.Error" />
+        Staff Member Action Required
+    </MudText>
 
-<br />
-<h2>1. Inform teh most appropriate Academic leader of Head of Department about the situation.</h2>
-<h2>2. If it is deemed a potential safeguarding situation, please complete the following Safeguarding Disclosure Form, or by clicking or scanning QR CODE Below.(link forms)</h2>
-<h2>3. You may be contacted by your Academic Leader/ Head of Department or a member of the Safeguarding Team to discuss this refferal.</h2>
+    <!-- Red border section with clock icons and bold terms -->
+    <MudPaper Elevation="4" Class="d-flex align-items-center justify-content-center" Style="border: 2px solid red; padding: 10px; border-radius: 8px;">
+        <MudIcon Icon="fas fa-clock" Color="Color.Error" Style="margin-right: 8px;" />
+        <h2>
+            If this is a time sensitive matter please contact an <b>Academic Leader</b>, <b>Head of Department</b> or another member of the <b>Safeguarding Team</b> straight away for guidance.
+            <br />
+            <a href="nclan.interactgo.com/login?local=True&error=Unable%20to%20find%20a%27s0039419%40my.nclan.ac.uk%27%20as%20their%20%27email1%27%20value" target="_blank" style="color: #0078d4; text-decoration: underline;">
+                (Click here for Safeguarding Team Contact Information)
+            </a><br />
+        </h2>
+        <MudIcon Icon="fas fa-clock" Color="Color.Error" Style="margin-left: 8px;" />
+    </MudPaper>
 
-@*left button*@
-<MudButton OnClick="@(() => ToPageEnd("concernsAllayed"))" Variant="Variant.Filled" FullWidth="true" Color="Color.Primary">Select</MudButton>
-@*right button*@
-<MudButton OnClick="@(() => ToPage9("ongoingMonitoring"))" Variant="Variant.Filled" FullWidth="true" Color="Color.Primary">Select</MudButton>
+    <!-- Black Border Rectangle with instructions -->
+    <MudPaper Elevation="1" Class="d-flex align-items-start justify-content-center" Style="border: 2px solid black; padding: 15px; border-radius: 8px; background-color: transparent;">
+        <MudStack Spacing="2" AlignItems="AlignItems.Start" JustifyContent="Start">
+            <MudStack direction="Row" Spacing="2">
+                <MudIcon Icon="fas fa-check-circle" Color="Color.Success" />
+                <h2>1. Inform the most appropriate Academic leader of Head of Department about the situation.</h2>
+            </MudStack>
+            <MudStack direction="Row" Spacing="2">
+                <MudIcon Icon="fas fa-check-circle" Color="Color.Success" />
+                <h2>2. If it is deemed a potential safeguarding situation, please complete the following Safeguarding Disclosure Form, or by clicking <a href="https://forms.office.com/pages/responsepage.aspx?id=yvDmCG0KYke4rK9Lew6jYMvQ7G44kAdAuvdOW14pRdxUOUY1RzVVUUJETVU0VERGMDZTSlo1NUpMUCQlQCN0PWcu" target="_blank" style="color: #0078d4; text-decoration: underline;">HERE</a>.</h2>
+            </MudStack>
+            <MudStack direction="Row" Spacing="2">
+                <MudIcon Icon="fas fa-check-circle" Color="Color.Success" />
+                <h2>3. You may be contacted by your Academic Leader/ Head of Department or a member of the Safeguarding Team to discuss this referral.</h2>
+            </MudStack>
+        </MudStack>
+    </MudPaper>
+
+    <!-- Grid for button alignment -->
+    <MudGrid>
+        <MudItem xs="5" Style="display: flex; justify-content: flex-start;">
+            <!-- Left Button (Green and Left Aligned) -->
+            <MudButton OnClick="@(() => ToPageEnd("concernsAllayed"))" Variant="Variant.Filled" FullWidth="false" Color="Color.Success" Style="width: 100%; height: 60px; font-size: 18px;">
+                <MudIcon Icon="fas fa-check-circle" Color="Color.Error" Style="margin-right: 8px;" />
+                Concerns Allayed
+            </MudButton>
+        </MudItem>
+
+        <MudItem xs="5" Style="display: flex; justify-content: flex-end;">
+            <!-- Right Button (Red and Right Aligned) -->
+            <MudButton OnClick="@(() => ToPage9("ongoingMonitoring"))" Variant="Variant.Filled" FullWidth="false" Color="Color.Error" Style="width: 100%; height: 60px; font-size: 18px;">
+                <MudIcon Icon="fas fa-times-circle" Color="Color.Success" Style="margin-right: 8px;" />
+                Ongoing Monitoring
+            </MudButton>
+        </MudItem>
+    </MudGrid>
+
+</MudStack>
 
 @code {
     void ToPageEnd(String answer)
     {
         Answer.Answer6 = answer;
         LayoutState.UpdateProgress(100);
-
-    Nav.NavigateTo("/page10");
+        Nav.NavigateTo("/page10");
     }
-        void ToPage9(String answer)
-        {
-        Answer.Answer6 = answer;
-            LayoutState.UpdateProgress(86);
 
-            Nav.NavigateTo("/page9");
-        }
-   
-    
+    void ToPage9(String answer)
+    {
+        Answer.Answer6 = answer;
+        LayoutState.UpdateProgress(86);
+        Nav.NavigateTo("/page9");
+    }
 }
