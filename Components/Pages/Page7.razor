@@ -5,50 +5,51 @@
 
 <h1>STAFF MEMBER ACTION REQUIRED</h1>
 
-<h2>1.Staff member contacts in-school contact</h2>
+<h2>1. Staff member contacts in-school contact</h2>
 <h2>2. Notify Schools Development Manager (Arlene Byrne)</h2>
-<h2>3. NCL Staff Member may be requested to complete Safeguarding Referral Form. (Click Here)-teams link</h2>
-<MudButton OnClick="CompleteProcess" Variant="Variant.Filled" Color="Color.Primary"
-           Style="margin-top: 10px; width: 200px; font-size: 16px; transition: transform 0.3s ease-in-out;"
-           Class="hover-scale">
+<h2> <a href="https://forms.office.com/pages/responsepage.aspx?id=yvDmCG0KYke4rK9Lew6jYMvQ7G44kAdAuvdOW14pRdxUOUY1RzVVUUJETVU0VERGMDZTSlo1NUpMUCQlQCN0PWcu"
+       target="_blank" style="color: #0078d4; text-decoration: underline;">
+        3. NCL Staff Member may be requested to complete Safeguarding Referral Form. (Click Here)
+    </a>
+</h2>
 
-    Arlene Byrne
+<MudContainer MaxWidth="MaxWidth.Medium" Class="mx-auto mt-6">
+    <MudStack Spacing="3" AlignItems="AlignItems.Center" JustifyContent="Center">
 
-    click to Email
+        <MudButton OnClick="CompleteProcess"
+                   Variant="Variant.Filled"
+                   Color="Color.Primary"
+                   Size="Size.Large">
+            <MudStack AlignItems="AlignItems.Center" JustifyContent="Center" Spacing="1">
+                <div>Arlene Byrne</div>
+                <div style="font-size: 0.875rem;">Click to Email</div>
+                <div style="font-size: 0.875rem;">Call: 7351</div>
+            </MudStack>
+        </MudButton>
 
-    Call: 7351
+        <MudButton OnClick="ToPageEnd"
+                   Variant="Variant.Filled"
+                   Color="Color.Primary"
+                   Size="Size.Large">
+            <MudIcon Icon="@Icons.Material.Filled.ArrowForward" />
+        </MudButton>
 
-</MudButton>
-<MudButton OnClick="ToPageEnd" Variant="Variant.Filled" Color="Color.Primary"
-           Style="margin-top: 10px; width: 200px; font-size: 16px; transition: transform 0.3s ease-in-out;"
-           Class="hover-scale">
 
-    Arrow Button
-</MudButton>
+    </MudStack>
+</MudContainer>
 
 @code {
-
-        private void CompleteProcess()
-        {
-
-            // Send Email
-            var email = "arlene.byrne@my.nlan.ac.uk";
-            var subject = "Safeguarding Referral Submitted";
-
-
-            var mailtoLink = $"mailto:{email}?subject={Uri.EscapeDataString(subject)}";
-
-            Nav.NavigateTo(mailtoLink, true);
-        }
-
-
-    void ToPageEnd()
-
+    private void CompleteProcess()
     {
+        var email = "arlene.byrne@my.nlan.ac.uk";
+        var subject = "Safeguarding Referral Submitted";
+        var mailtoLink = $"mailto:{email}?subject={Uri.EscapeDataString(subject)}";
+        Nav.NavigateTo(mailtoLink, true);
+    }
 
+    private void ToPageEnd()
+    {
         LayoutState.UpdateProgress(100);
-
         Nav.NavigateTo("/page10");
-
     }
-    }
+}
