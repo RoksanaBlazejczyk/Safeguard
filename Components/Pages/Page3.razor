@@ -6,53 +6,62 @@
 
 <MudContainer Class="d-flex justify-center mt-3">
     <MudCard Elevation="5" Class="p-3 w-100">
-
-        <SafeguardingHeader Title="How have you become aware of this incident?" />
+        <!-- Title area -->
+        <MudCardContent Class="d-flex justify-center">
+            <MudText Typo="Typo.h4" Style="font-size: 32px; font-weight: bold; text-align: center;">
+                Who does it relate to?
+            </MudText>
+        </MudCardContent>
 
         <MudGrid class="d-flex justify-center align-content-center" Style="margin-top: 3rem;">
+            <!-- Suspicion of neglect/abuse button -->
             <MudItem xs="12" sm="12" lg="6">
-                <MudCard Style="background-color: #e0e0e0;">
-                    <MudCardContent Class="d-flex justify-center text-center">
-                        <MudText Typo="Typo.h6">Suspicion of neglect/abuse</MudText>
+                <MudCard Style="background-color: #e0e0e0; border: 5px solid black; height: 150px;">
+                    <MudCardContent Class="d-flex justify-center align-items-center">
+                        <MudButton OnClick="@(() => ToPage4Suspicion("suspicion"))" Variant="Variant.Filled" FullWidth="true" Color="Color.Primary" Style="font-size: 16px; height: 100%; border-radius: 4px; display: flex; align-items: center; justify-content: center; border: 5px solid black;">
+                            Suspicion of neglect/abuse
+                        </MudButton>
                     </MudCardContent>
-                    <MudCardActions>
-                        <MudButton OnClick="@(() => ToPage4Suspicion("suspicion"))" Variant="Variant.Filled" FullWidth="true" Color="Color.Primary">Select</MudButton>
-                    </MudCardActions>
                 </MudCard>
             </MudItem>
+
+            <!-- Allegation of neglect/abuse button -->
             <MudItem xs="12" sm="12" lg="6">
-                <MudCard Style="background-color: #e0e0e0;">
-                    <MudCardContent Class="d-flex justify-center text-center">
-                        <MudText Typo="Typo.h6">Allegation of neglect/abuse</MudText>
+                <MudCard Style="background-color: #e0e0e0; border: 5px solid black; height: 150px;">
+                    <MudCardContent Class="d-flex justify-center align-items-center">
+                        <MudButton OnClick="@(() => ToPage4Allegation("allegation"))" Variant="Variant.Filled" FullWidth="true" Color="Color.Primary" Style="font-size: 16px; height: 100%; border-radius: 4px; display: flex; align-items: center; justify-content: center; border: 5px solid black;">
+                            Allegation of neglect/abuse
+                        </MudButton>
                     </MudCardContent>
-                    <MudCardActions>
-                        <MudButton OnClick="@(() => ToPage4Allegation("allegation"))" Variant="Variant.Filled" FullWidth="true" Color="Color.Primary">Select</MudButton>
-                    </MudCardActions>
                 </MudCard>
             </MudItem>
+
+            <!-- Concerns about someone's behaviour button -->
             <MudItem xs="12" sm="12" lg="6">
-                <MudCard Style="background-color: #e0e0e0;">
-                    <MudCardContent Class="d-flex justify-center text-center">
-                        <MudText Typo="Typo.h6">Concerns about someone's behaviour</MudText>
+                <MudCard Style="background-color: #e0e0e0; border: 5px solid black; height: 150px;">
+                    <MudCardContent Class="d-flex justify-center align-items-center">
+                        <MudButton OnClick="@(() => ToPage4Concern("concerns"))" Variant="Variant.Filled" FullWidth="true" Color="Color.Primary" Style="font-size: 16px; height: 100%; border-radius: 4px; display: flex; align-items: center; justify-content: center; border: 5px solid black;">
+                            Concerns about someone's behaviour
+                        </MudButton>
                     </MudCardContent>
-                    <MudCardActions>
-                        <MudButton OnClick="@(() => ToPage4Concern("concerns"))" Variant="Variant.Filled" FullWidth="true" Color="Color.Primary">Select</MudButton>
-                    </MudCardActions>
                 </MudCard>
             </MudItem>
+
+            <!-- At risk to self or others button -->
             <MudItem xs="12" sm="12" lg="6">
-                <MudCard Style="background-color: #e0e0e0;">
-                    <MudCardContent Class="d-flex justify-center text-center">
-                        <MudText Typo="Typo.h6">At risk to self or others</MudText>
+                <MudCard Style="background-color: #e0e0e0; border: 5px solid black; height: 150px;">
+                    <MudCardContent Class="d-flex justify-center align-items-center">
+                        <MudButton OnClick="@(() => ToPage4Risk("risk"))" Variant="Variant.Filled" FullWidth="true" Color="Color.Primary" Style="font-size: 16px; height: 100%; border-radius: 4px; display: flex; align-items: center; justify-content: center; border: 5px solid black;">
+                            At risk to self or others
+                        </MudButton>
                     </MudCardContent>
-                    <MudCardActions>
-                        <MudButton OnClick="@(() => ToPage4Risk("risk"))" Variant="Variant.Filled" FullWidth="true" Color="Color.Primary">Select</MudButton>
-                    </MudCardActions>
                 </MudCard>
             </MudItem>
         </MudGrid>
     </MudCard>
 </MudContainer>
+
+
 
 
 

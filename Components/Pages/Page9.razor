@@ -6,11 +6,17 @@
 
 <MudContainer Class="d-flex justify-center mt-3">
     <MudCard Elevation="5" Class="p-3 w-100">
-        <SafeguardingHeader Title="After being referred to Safeguarding Board/Executive Board" />
+        <!-- Title area -->
+        <MudCardContent Class="d-flex justify-center">
+            <MudText Typo="Typo.h4" Style="font-size: 32px; font-weight: bold; text-align: center;">
+                After being referred to Safeguarding Board/Executive Board
+            </MudText>
+        </MudCardContent>
 
         <MudGrid Class="d-flex justify-center align-content-center" Style="margin-top: 2rem;">
+            <!-- The Left button -->
             <MudItem xs="12" sm="12" lg="6">
-                <MudCard Style="background-color: #e0e0e0; border-radius: 8px; padding: 4px 8px 8px 8px;">
+                <MudCard Style="background-color: #e0e0e0; border: 2px solid black; border-radius: 8px; padding: 4px 8px 8px 8px;">
                     <MudCardContent Class="d-flex justify-center text-center" Style="padding: 4px 0;">
                     </MudCardContent>
                     <MudCardActions Style="padding: 8px;">
@@ -25,8 +31,9 @@
                 </MudCard>
             </MudItem>
 
+            <!-- The Right button -->
             <MudItem xs="12" sm="12" lg="6">
-                <MudCard Style="background-color: #e0e0e0; border-radius: 8px; padding: 4px 8px 8px 8px;">
+                <MudCard Style="background-color: #e0e0e0; border: 2px solid black; border-radius: 8px; padding: 4px 8px 8px 8px;">
                     <MudCardContent Class="d-flex justify-center text-center" Style="padding: 4px 0;">
                     </MudCardContent>
                     <MudCardActions Style="padding: 8px;">
@@ -40,6 +47,8 @@
                     </MudCardActions>
                 </MudCard>
             </MudItem>
+
+            <!-- The End Button at bottom -->
             <MudItem xs="12">
                 <div class="d-flex justify-center">
                     <MudButton OnClick="ToPageEnd"
@@ -53,8 +62,11 @@
                 </div>
             </MudItem>
         </MudGrid>
+
     </MudCard>
 </MudContainer>
+
+
 
 
 
