@@ -42,10 +42,9 @@
             </MudStack>
         </MudStack>
     </MudPaper>
-
-    <!-- Grid for button alignment -->
     <MudGrid>
-        <MudItem xs="5" Style="display: flex; justify-content: flex-start;">
+        <MudItem xs="5" Style="display: flex; justify-content: flex-start; padding-right: 15px;">
+            <!-- Left button with space on the right -->
             <!-- Left Button (Green and Left Aligned) -->
             <MudButton OnClick="@(() => ToPageEnd("concernsAllayed"))" Variant="Variant.Filled" FullWidth="false" Color="Color.Success" Style="width: 100%; height: 60px; font-size: 18px;">
                 <MudIcon Icon="fas fa-check-circle" Color="Color.Error" Style="margin-right: 8px;" />
@@ -53,7 +52,8 @@
             </MudButton>
         </MudItem>
 
-        <MudItem xs="5" Style="display: flex; justify-content: flex-end;">
+        <MudItem xs="5" Style="display: flex; justify-content: flex-end; margin-left: auto;">
+            <!-- Right button aligned to the edge -->
             <!-- Right Button (Red and Right Aligned) -->
             <MudButton OnClick="@(() => ToPage9("ongoingMonitoring"))" Variant="Variant.Filled" FullWidth="false" Color="Color.Error" Style="width: 100%; height: 60px; font-size: 18px;">
                 <MudIcon Icon="fas fa-times-circle" Color="Color.Success" Style="margin-right: 8px;" />
